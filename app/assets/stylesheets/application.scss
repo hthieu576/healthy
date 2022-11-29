@@ -1,0 +1,262 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+:root {
+  --vt-c-white: #ffffff;
+  --vt-c-white-soft: #f8f8f8;
+  --vt-c-white-mute: #f2f2f2;
+
+  --vt-c-black: #181818;
+  --vt-c-black-soft: #222222;
+  --vt-c-black-mute: #282828;
+
+  --vt-c-indigo: #2c3e50;
+
+  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
+  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
+  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
+  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
+
+  --vt-c-text-light-1: var(--vt-c-indigo);
+  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
+  --vt-c-text-dark-1: var(--vt-c-white);
+  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+}
+
+/* semantic color variables for this project */
+:root {
+  --color-background: var(--vt-c-white);
+  --color-background-soft: var(--vt-c-white-soft);
+  --color-background-mute: var(--vt-c-white-mute);
+
+  --color-border: var(--vt-c-divider-light-2);
+  --color-border-hover: var(--vt-c-divider-light-1);
+
+  --color-heading: var(--vt-c-text-light-1);
+  --color-text: var(--vt-c-text-light-1);
+
+  --section-gap: 160px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--vt-c-black);
+    --color-background-soft: var(--vt-c-black-soft);
+    --color-background-mute: var(--vt-c-black-mute);
+
+    --color-border: var(--vt-c-divider-dark-2);
+    --color-border-hover: var(--vt-c-divider-dark-1);
+
+    --color-heading: var(--vt-c-text-dark-1);
+    --color-text: var(--vt-c-text-dark-2);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  font-weight: normal;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition: color 0.5s, background-color 0.5s;
+  line-height: 1.6;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+$light      : #FFFFFF;
+$primary1   : #FFCC21;
+$primary2   : #FF963C;
+$primary3   : #EA6C00;
+$secondary  : #8FE9D0;
+$dark1      : #2E2E2E;
+$dark2      : #414141;
+$gray       : #777777;
+
+@mixin primary-gradient($attribute) {
+    #{$attribute}: -webkit-linear-gradient(32.95deg, $primary1, $primary2) !important;
+    #{$attribute}: linear-gradient(32.95deg, $primary1, $primary2) !important;
+}
+
+.text-light     { color: $light !important; }
+.text-primary1  { color: $primary1 !important; }
+.text-primary2  { color: $primary2 !important; }
+.text-primary3  { color: $primary3 !important; }
+.text-secondary { color: $secondary !important; }
+.text-dark1     { color: $dark1 !important; }
+.text-dark2     { color: $dark2 !important; }
+.text-gray      { color: $gray !important; }
+
+.bg-light       { background: $light !important; }
+.bg-primary1    { background: $primary1 !important; }
+.bg-primary2    { background: $primary2 !important; }
+.bg-primary3    { background: $primary3 !important; }
+.bg-secondary   { background: $secondary !important; }
+.bg-dark1       { background: $dark1 !important; }
+.bg-dark2       { background: $dark2 !important; }
+.bg-gray        { background: $gray !important; }
+
+// Fonts
+.text-16        { font-size: 16px !important; }
+.text-15        { font-size: 15px !important; }
+.text-14        { font-size: 14px !important; }
+.text-13        { font-size: 13px !important; }
+.text-12        { font-size: 12px !important; }
+.text-11        { font-size: 11px !important; }
+
+.btn-gradient {
+    @include primary-gradient('background');
+    color: $light;
+    border: none;
+    padding: 12px 0;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 26px;
+    width: 296px;
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 15px;
+    color: $dark2;
+}
+
+/* Header */
+header {
+    min-height: 64px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.160784);
+    border: none;
+    padding: 18px;
+
+    .nav-link {
+        color: $light;
+    }
+}
+
+.header-logo-img {
+    width: 109px;
+    height: 40px;
+}
+
+.header-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    margin-right: 12px;
+}
+/* Header */
+
+/* Page Content */
+.page-content {
+    padding: 80px 0;
+}
+
+.features {
+    .feature-card {
+        height: 144px;
+        background: $dark1;
+        padding: 0px 24px;
+
+        .feature-title {
+            color: $primary1;
+            font-family: 'Inter';
+            font-weight: 400;
+            font-size: 22px;
+            line-height: 27px;
+            letter-spacing: 0.11px;
+        }
+
+        .feature-subtitle {
+            color: $light;
+        }
+
+        .separate {
+            width: 56px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+
+.products {
+    margin-top: 56px;
+    margin-bottom: 24px;
+
+    .product-card {
+        border: none;
+    }
+
+    .card-head {
+        position: relative;
+
+        .head-text {
+            background: $primary1;
+            position: absolute;
+            bottom: 0;
+            height: 28px;
+            line-height: 28px;
+            padding: 0 8px;
+            color: $light;
+        }
+    }
+
+    .card-body {
+        padding: 8px 0 0;
+    }
+
+    .card-img-top {
+        height: 144px;
+        object-fit: fill;
+    }
+
+    .card-text {
+        font-weight: 300;
+        font-size: 15px;
+        line-height: 22px;
+        letter-spacing: 0.075px;
+    }
+
+    .tag {
+        color: $primary2;
+        display: inline-block;
+        margin-right: 10px;
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 22px;
+    }
+}
+
+.separate {
+    width: 100%;
+    height: 1px;
+    background: $light;
+    margin: 0 auto;
+}
+/* Page Content */
+
+/* Footer */
+footer {
+    border: none;
+    padding: 56px;
+
+    .nav-item {
+        padding: 0 24px;
+    }
+
+    .nav-link {
+        color: $light;
+    }
+}
+/* Footer */
