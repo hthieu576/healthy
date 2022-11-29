@@ -13,6 +13,8 @@
 #  updated_at              :datetime         not null
 #
 class MenuItem < ApplicationRecord
+	has_one_attached :image
+
 	belongs_to :food
 	belongs_to :meal
 	belongs_to :user

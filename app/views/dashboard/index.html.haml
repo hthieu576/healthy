@@ -58,102 +58,34 @@
   .products
     .container
       .row.row-cols-1.row-cols-sm-2.row-cols-md-4.g-4
-        .col
-          .product-card
-            .card-head
-              %img.card-img-top{:alt => "...", :src => "./assets/product-img.jpeg"}/
-              .head-text.d-flex.align-items-center 2021.05.17 23:25
-            .card-body
-              %p.card-text 魚を食べて頭もカラダも元気に！知っておきたい魚を食べるメリ…
-            .card-footer
-              .tags
-                .tag #魚料理
-                .tag #和食
-                .tag #DHA
-        .col
-          .product-card
-            .card-head
-              %img.card-img-top{:alt => "...", :src => "./assets/product-img.jpeg"}/
-              .head-text.d-flex.align-items-center 2021.05.17 23:25
-            .card-body
-              %p.card-text 魚を食べて頭もカラダも元気に！知っておきたい魚を食べるメリ…
-            .card-footer
-              .tags
-                .tag #魚料理
-                .tag #和食
-                .tag #DHA
-        .col
-          .product-card
-            .card-head
-              %img.card-img-top{:alt => "...", :src => "./assets/product-img.jpeg"}/
-              .head-text.d-flex.align-items-center 2021.05.17 23:25
-            .card-body
-              %p.card-text 魚を食べて頭もカラダも元気に！知っておきたい魚を食べるメリ…
-            .card-footer
-              .tags
-                .tag #魚料理
-                .tag #和食
-                .tag #DHA
-        .col
-          .product-card
-            .card-head
-              %img.card-img-top{:alt => "...", :src => "./assets/product-img.jpeg"}/
-              .head-text.d-flex.align-items-center 2021.05.17 23:25
-            .card-body
-              %p.card-text 魚を食べて頭もカラダも元気に！知っておきたい魚を食べるメリ…
-            .card-footer
-              .tags
-                .tag #魚料理
-                .tag #和食
-                .tag #DHA
-        .col
-          .product-card
-            .card-head
-              %img.card-img-top{:alt => "...", :src => "./assets/product-img.jpeg"}/
-              .head-text.d-flex.align-items-center 2021.05.17 23:25
-            .card-body
-              %p.card-text 魚を食べて頭もカラダも元気に！知っておきたい魚を食べるメリ…
-            .card-footer
-              .tags
-                .tag #魚料理
-                .tag #和食
-                .tag #DHA
-        .col
-          .product-card
-            .card-head
-              %img.card-img-top{:alt => "...", :src => "./assets/product-img.jpeg"}/
-              .head-text.d-flex.align-items-center 2021.05.17 23:25
-            .card-body
-              %p.card-text 魚を食べて頭もカラダも元気に！知っておきたい魚を食べるメリ…
-            .card-footer
-              .tags
-                .tag #魚料理
-                .tag #和食
-                .tag #DHA
-        .col
-          .product-card
-            .card-head
-              %img.card-img-top{:alt => "...", :src => "./assets/product-img.jpeg"}/
-              .head-text.d-flex.align-items-center 2021.05.17 23:25
-            .card-body
-              %p.card-text 魚を食べて頭もカラダも元気に！知っておきたい魚を食べるメリ…
-            .card-footer
-              .tags
-                .tag #魚料理
-                .tag #和食
-                .tag #DHA
-        .col
-          .product-card
-            .card-head
-              %img.card-img-top{:alt => "...", :src => "./assets/product-img.jpeg"}/
-              .head-text.d-flex.align-items-center 2021.05.17 23:25
-            .card-body
-              %p.card-text 魚を食べて頭もカラダも元気に！知っておきたい魚を食べるメリ…
-            .card-footer
-              .tags
-                .tag #魚料理
-                .tag #和食
-                .tag #DHA
+        - if current_user
+          - current_user.menu_items.each do |menu_item|
+            .col
+              .product-card
+                .card-head
+                  = image_tag menu_item.image, class: 'card-img-top'
+                  .head-text.d-flex.align-items-center 2021.05.17 23:25
+                .card-body
+                  %p.card-text 魚を食べて頭もカラダも元気に！知っておきたい魚を食べるメリ…
+                .card-footer
+                  .tags
+                    .tag #魚料理
+                    .tag #和食
+                    .tag #DHA
+        - else
+          - 8.times do |i|
+            .col
+              .product-card
+                .card-head
+                  = image_tag('sample-images.png', class: 'card-img-top')
+                  .head-text.d-flex.align-items-center 2021.05.17 23:25
+                .card-body
+                  %p.card-text 魚を食べて頭もカラダも元気に！知っておきたい魚を食べるメリ…
+                .card-footer
+                  .tags
+                    .tag #魚料理
+                    .tag #和食
+                    .tag #DHA
   .page-actions.d-flex.align-items-center.justify-content-center
     %button.btn.btn-gradient{:type => "button"} コラムをもっと見る
 

@@ -13,8 +13,8 @@
 #
 class Exercise < ApplicationRecord
 
-	has_many :exercise_persons
-	has_many :users, through: :exercise_persons
+	has_many :exercise_people
+	has_many :users, through: :exercise_people
 
 	validates :name, :description, :energy_comsumption, :exercise_time, presence: true
 end

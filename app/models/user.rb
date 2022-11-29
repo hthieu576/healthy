@@ -20,8 +20,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :exercise_persons, dependent: :destroy
-  has_many :exercises, through: :exercise_persons
+  has_many :exercise_people, dependent: :destroy
+  has_many :exercises, through: :exercise_people
   has_many :menu_items, dependent: :destroy
   has_many :person_diaries, dependent: :destroy
   has_many :person_bodies, dependent: :destroy

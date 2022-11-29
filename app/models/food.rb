@@ -12,7 +12,7 @@
 #
 class Food < ApplicationRecord
 	has_many :menu_items, dependent: :destroy
-	has_one :nutrition_fact, dependent, :destroy
+	has_one :nutrition_fact, dependent: :destroy
 	belongs_to :unit_of_measure
 
 	validates :name, presence: true

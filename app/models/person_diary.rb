@@ -10,5 +10,5 @@
 #  updated_at :datetime         not null
 #
 class PersonDiary < ApplicationRecord
-	belongs_to :users
+	belongs_to :user
 end
