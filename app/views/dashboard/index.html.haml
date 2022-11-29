@@ -6,16 +6,26 @@
       %ul.nav.nav-pills.text-16
         %li.nav-item
           %a.nav-link{:href => "#"}
-            %img.header-icon{:src => "./assets/memo.png"}>/
-            自分の記録
+            = image_tag("memo.png", width: "20")
+            Record
         %li.nav-item
           %a.nav-link{:href => "#"}
-            %img.header-icon{:src => "./assets/challenge.png"}>/
-            チャレンジ
+            = image_tag("challenge.png", width: "20")
+            Challenge
         %li.nav-item
           %a.nav-link{:href => "#"}
-            %img.header-icon{:src => "./assets/info.png"}>/
-            お知らせ
+            = image_tag("info.png", width: "20")
+            News
+        %li.nav-item.nav-item-last
+          - if current_user
+            .dropdown
+              %button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+                = current_user.full_name
+              .dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
+                %a.dropdown-item{:href => "#"} Profile
+                = link_to 'Sign out', destroy_user_session_path, class: 'dropdown-item', method: :delete
+          - else
+            = link_to 'Signup', new_user_registration_path, class: 'sign-up'
 
 .page-content
   .features
