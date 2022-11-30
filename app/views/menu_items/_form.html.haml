@@ -1,0 +1,29 @@
+= form_with(model: menu_item, local: true, class: 'form-signin') do |f|
+  %h1 New Menu Item
+  %br
+  - if menu_item.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(menu_item.errors.count, "error")
+        prohibited this menu_item from being saved:
+      %ul
+        - menu_item.errors.full_messages.each do |message|
+          %li= message
+  - meal = Meal.find_by(meal_type: params[:meal_type])
+  = f.hidden_field :user_id, value: current_user.id
+  = f.hidden_field :meal_id, value: meal.id
+  .form-group
+    = f.label :food
+    = f.select :food_id, Food.pluck(:name, :id), {}, class: 'form-control', required: true
+  .form-group
+    = f.label :portion_size_adjustment
+    = f.number_field :portion_size_adjustment, min: 1, autocomplete: "portion_size_adjustment", class: 'form-control', required: true
+  .form-group
+    = f.label :serve_datetime
+    = f.datetime_local_field :serve_datetime, min: Date.today, class: 'form-control', required: true
+  .form-group
+    = f.label :image
+    = f.file_field :image, class: 'form-control', required: true
+
+  .actions
+    = f.submit "Create", class: 'btn btn-primary'

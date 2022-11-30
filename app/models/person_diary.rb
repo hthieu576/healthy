@@ -10,5 +10,6 @@
 #  updated_at :datetime         not null
 #
 class PersonDiary < ApplicationRecord
+	has_paper_trail
 	belongs_to :user
 end

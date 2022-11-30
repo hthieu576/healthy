@@ -8,6 +8,7 @@
 #  updated_at :datetime         not null
 #
 class Meal < ApplicationRecord
+  has_paper_trail
   has_many :menu_items, dependent: :destroy
 
 	enum meal_type: {

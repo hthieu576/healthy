@@ -13,9 +13,18 @@
 #  updated_at              :datetime         not null
 #
 class MenuItem < ApplicationRecord
+	has_paper_trail
 	has_one_attached :image
 
 	belongs_to :food
 	belongs_to :meal
 	belongs_to :user
+
+	def meal_type
+  	meal.meal_type.capitalize
+  end
+
+  def serve_time
+    serve_datetime&.strftime("%H:%m")
+  end
 end

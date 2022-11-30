@@ -9,5 +9,6 @@
 #  updated_at   :datetime         not null
 #
 class UnitOfMeasure < ApplicationRecord
+	has_paper_trail
 	validates :name, presence: true
 end

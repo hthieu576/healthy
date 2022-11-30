@@ -1,0 +1,47 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Healthy
+    = csrf_meta_tags
+    = csp_meta_tag
+    %meta{charset: "UTF-8"}/
+    %link{href: "/favicon.ico", rel: "icon"}/
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
+    %link{href: "https://fonts.googleapis.com", rel: "preconnect"}/
+    %link{crossorigin: "", href: "https://fonts.gstatic.com", rel: "preconnect"}/
+    %link{href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;700&display=swap", rel: "stylesheet"}/
+    %link{crossorigin: "anonymous", href: "https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css", integrity: "sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65", rel: "stylesheet"}/
+    %script{crossorigin: "anonymous", integrity: "sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4", src: "https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"}
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %header.bg-dark2
+      .container
+        .d-flex.flex-wrap.justify-content-center
+          %a.d-flex.align-items-center.me-md-auto{:href => "/"}
+            = image_tag("logo.png", width: 100)
+          %ul.nav.nav-pills.text-16
+            %li.nav-item
+              %a.nav-link{:href => "#"}
+                = image_tag("memo.png", width: "20")
+                Record
+            %li.nav-item
+              %a.nav-link{:href => "#"}
+                = image_tag("challenge.png", width: "20")
+                Challenge
+            %li.nav-item
+              %a.nav-link{:href => "#"}
+                = image_tag("info.png", width: "20")
+                News
+            %li.nav-item.nav-item-last
+              - if current_user
+                .dropdown
+                  %button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+                    = current_user.decorate.full_name
+                  .dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
+                    %a.dropdown-item{:href => "#"} Profile
+                    = link_to 'Sign out', destroy_user_session_path, class: 'dropdown-item', method: :delete
+              - else
+                = link_to 'Signup', new_user_registration_path, class: 'sign-up'
+    = yield

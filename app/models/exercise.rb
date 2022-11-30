@@ -12,6 +12,7 @@
 #  updated_at         :datetime         not null
 #
 class Exercise < ApplicationRecord
+	has_paper_trail
 
 	has_many :exercise_people
 	has_many :users, through: :exercise_people

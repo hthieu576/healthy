@@ -15,11 +15,13 @@
 #  remember_created_at    :datetime
 #
 class User < ApplicationRecord
+  has_paper_trail
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :api_tokens, dependent: :destroy
   has_many :exercise_people, dependent: :destroy
   has_many :exercises, through: :exercise_people
   has_many :menu_items, dependent: :destroy
@@ -29,7 +31,11 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :email, :address, presence: true
   validates_uniqueness_of :email
 
-  def full_name
-    "#{first_name} #{last_name}"
+  after_create :create_api_token!
+
+  private
+
+  def create_api_token!
+    api_tokens.create!(expire_at: 2.weeks.from_now)
   end
 end

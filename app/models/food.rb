@@ -11,6 +11,8 @@
 #  updated_at         :datetime         not null
 #
 class Food < ApplicationRecord
+	has_paper_trail
+
 	has_many :menu_items, dependent: :destroy
 	has_one :nutrition_fact, dependent: :destroy
 	belongs_to :unit_of_measure

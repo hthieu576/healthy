@@ -26,6 +26,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 gem 'rubocop-rails', require: false
 
+#Chart
+gem "chartkick"
+gem "groupdate"
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -56,17 +60,20 @@ gem 'devise', '>= 4.7.1'
 gem 'figaro'
 gem 'hashie'
 
-# Lat, Long distance
-gem 'geocoder', '~> 1.3', '>= 1.3.7'
+# Decorator
+gem 'draper'
 
 # Api Extension
 gem 'grape', '~> 1.4.0'
 gem 'grape-entity'
 gem 'rack-attack'
 gem 'rack-cors'
+gem 'net-http'
+gem 'httparty'
 
 # Model Extension
 gem 'annotate'
+gem 'active_model_serializers'
 
 # Documentation
 gem 'grape-swagger'

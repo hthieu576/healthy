@@ -1,77 +1,69 @@
-%header.bg-dark2
-  .container
-    .d-flex.flex-wrap.justify-content-center
-      %a.d-flex.align-items-center.me-md-auto{:href => "/"}
-        %img.header-logo-img{:src => "./assets/logo.png"}/
-      %ul.nav.nav-pills.text-16
-        %li.nav-item
-          %a.nav-link{:href => "#"}
-            = image_tag("memo.png", width: "20")
-            Record
-        %li.nav-item
-          %a.nav-link{:href => "#"}
-            = image_tag("challenge.png", width: "20")
-            Challenge
-        %li.nav-item
-          %a.nav-link{:href => "#"}
-            = image_tag("info.png", width: "20")
-            News
-        %li.nav-item.nav-item-last
-          - if current_user
-            .dropdown
-              %button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
-                = current_user.full_name
-              .dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
-                %a.dropdown-item{:href => "#"} Profile
-                = link_to 'Sign out', destroy_user_session_path, class: 'dropdown-item', method: :delete
-          - else
-            = link_to 'Signup', new_user_registration_path, class: 'sign-up'
-
 .page-content
-  .features
-    .container
-      .row.row-cols-1.row-cols-sm-2.row-cols-md-4.g-4
-        .col
-          .feature-card.d-flex.align-items-center.justify-content-center.text-center
-            .feature-content
-              .feature-title RECOMMENDED COLUMN
-              .separate
-              .feature-subtitle オススメ
-        .col
-          .feature-card.d-flex.align-items-center.justify-content-center.text-center
-            .feature-content
-              .feature-title RECOMMENDED COLUMN
-              .separate
-              .feature-subtitle オススメ
-        .col
-          .feature-card.d-flex.align-items-center.justify-content-center.text-center
-            .feature-content
-              .feature-title RECOMMENDED COLUMN
-              .separate
-              .feature-subtitle オススメ
-        .col
-          .feature-card.d-flex.align-items-center.justify-content-center.text-center
-            .feature-content
-              .feature-title RECOMMENDED COLUMN
-              .separate
-              .feature-subtitle オススメ
+  - if current_user
+    .features
+      .container
+        .row
+          .col-5
+            = link_to root_path do
+              = image_tag("main_photo.png", width: "460", height: '280')
+          .col-7
+            = line_chart({"2021-01-01" => 2, "2021-01-02" => 3, "2021-01-04" => 1})
+  - else
+    .features
+      .container
+        .row.row-cols-1.row-cols-sm-2.row-cols-md-4.g-4
+          .col
+            .feature-card.d-flex.align-items-center.justify-content-center.text-center
+              .feature-content
+                .feature-title RECOMMENDED COLUMN
+                .separate
+                .feature-subtitle オススメ
+          .col
+            .feature-card.d-flex.align-items-center.justify-content-center.text-center
+              .feature-content
+                .feature-title RECOMMENDED COLUMN
+                .separate
+                .feature-subtitle オススメ
+          .col
+            .feature-card.d-flex.align-items-center.justify-content-center.text-center
+              .feature-content
+                .feature-title RECOMMENDED COLUMN
+                .separate
+                .feature-subtitle オススメ
+          .col
+            .feature-card.d-flex.align-items-center.justify-content-center.text-center
+              .feature-content
+                .feature-title RECOMMENDED COLUMN
+                .separate
+                .feature-subtitle オススメ
+  - if current_user
+    .products
+      .container
+        .row
+          .col-3.d-flex.justify-content-center
+            = link_to new_menu_item_path(meal_type: 'morning') do
+              = image_tag("morning.png", width: "100")
+          .col-3.d-flex.justify-content-center
+            = link_to new_menu_item_path(meal_type: 'lunch') do
+              = image_tag("lunch.png", width: "100")
+          .col-3.d-flex.justify-content-center
+            = link_to new_menu_item_path(meal_type: 'dinner') do
+              = image_tag("dinner.png", width: "100")
+          .col-3.d-flex.justify-content-center
+            = link_to new_menu_item_path(meal_type: 'snack') do
+              = image_tag("snack.png", width: "100")
+
   .products
     .container
       .row.row-cols-1.row-cols-sm-2.row-cols-md-4.g-4
         - if current_user
-          - current_user.menu_items.each do |menu_item|
+          - @menu_items.each do |menu_item|
             .col
               .product-card
                 .card-head
                   = image_tag menu_item.image, class: 'card-img-top'
-                  .head-text.d-flex.align-items-center 2021.05.17 23:25
-                .card-body
-                  %p.card-text 魚を食べて頭もカラダも元気に！知っておきたい魚を食べるメリ…
-                .card-footer
-                  .tags
-                    .tag #魚料理
-                    .tag #和食
-                    .tag #DHA
+                  .head-text.d-flex.align-items-center
+                    = "#{menu_item.meal_type} #{menu_item.serve_time}"
         - else
           - 8.times do |i|
             .col

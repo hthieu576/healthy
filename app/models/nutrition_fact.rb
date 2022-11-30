@@ -12,5 +12,6 @@
 #  updated_at  :datetime         not null
 #
 class NutritionFact < ApplicationRecord
+	has_paper_trail
 	belongs_to :food
 end

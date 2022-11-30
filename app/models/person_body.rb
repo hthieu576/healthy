@@ -11,6 +11,7 @@
 #  updated_at  :datetime         not null
 #
 class PersonBody < ApplicationRecord
+	has_paper_trail
 	belongs_to :user
 
 	validates :weight, :weight_date, presence: true
