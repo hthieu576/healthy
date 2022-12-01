@@ -48,11 +48,6 @@ gem 'paper_trail', '~> 11.0'
 # Authorization
 gem 'pundit', '~> 1.1'
 
-# Active admin
-gem 'activeadmin'
-gem 'activeadmin_addons'
-gem 'active_admin_datetimepicker'
-
 # Devise
 gem 'devise', '>= 4.7.1'
 
@@ -63,13 +58,8 @@ gem 'hashie'
 # Decorator
 gem 'draper'
 
-# Api Extension
-gem 'grape', '~> 1.4.0'
-gem 'grape-entity'
 gem 'rack-attack'
 gem 'rack-cors'
-gem 'net-http'
-gem 'httparty'
 
 # Model Extension
 gem 'annotate'

@@ -10,9 +10,11 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
-class PersonBody < ApplicationRecord
-	has_paper_trail
-	belongs_to :user
-
-	validates :weight, :weight_date, presence: true
+FactoryBot.define do
+  factory :person_body do
+    user { create :user }
+    note { Faker::Lorem.sentence }
+    weight { 55.3 }
+    weight_date { Date.today }
+  end
 end
