@@ -25,3 +25,11 @@ Things you may want to cover:
 
 * CI sample
 <img width="1391" alt="Screen Shot 2022-12-01 at 15 12 58" src="https://user-images.githubusercontent.com/20606548/205000307-afe3663a-2ebb-4cbc-9d0d-a60a607990b5.png">
+
+* Example about UI
+<img width="1277" alt="Screen Shot 2022-12-01 at 15 16 45" src="https://user-images.githubusercontent.com/20606548/205001157-2154d67a-90d7-4b8f-9a1d-257f20bbfacc.png">
+
+
+
+
+<img width="1195" alt="Screen Shot 2022-12-01 at 15 16 55" src="https://user-images.githubusercontent.com/20606548/205001196-79c5b1f4-fd97-4074-9eb3-18cb6c338f71.png">
