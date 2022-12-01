@@ -1,0 +1,60 @@
+.page-content
+  .features
+    .container
+      .row
+        .col-4
+          .feature-card.d-flex.align-items-center.justify-content-center.text-center
+            .feature-content
+              .feature-title BODY RECORD
+              .separate
+              .feature-subtitle Body Record
+        .col-4
+          .feature-card.d-flex.align-items-center.justify-content-center.text-center
+            .feature-content
+              .feature-title MY EXERCISE
+              .separate
+              .feature-subtitle My Exercise
+        .col-4
+          .feature-card.d-flex.align-items-center.justify-content-center.text-center
+            .feature-content
+              .feature-title MY DIARY
+              .separate
+              .feature-subtitle My Diary
+  .features.mt-4
+    .container
+      .row
+        .col-12
+          = line_chart({"2021-01-01" => 2, "2021-01-02" => 3, "2021-01-04" => 1})
+
+  .features.mt-5
+    .container
+      .row
+        .col-12
+          .feature-card
+            .row
+              .col-6
+                %span.text-white abd
+              .col-6
+                %span.text-white abd
+            .row
+              .col-6
+                %span.text-white bbbb
+              .col-6
+                %span.text-white abbbbbd
+
+              
+  .features.mt-5
+    .container
+      .row
+        - @person_diaries.each do |diary|
+          .col-3.mt-2
+            .feature-card.bg-light.border.border-dark
+              .row
+                .col-12
+                  %span.text-black
+                    = diary.diary_date
+              .row
+                .col-12
+                  = diary.note
+
+        

@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   mount V1::Mount => V1::Mount::PREFIX
 
   resources :menu_items, only: [:new, :create]
+  resource :record, only: :show
 end

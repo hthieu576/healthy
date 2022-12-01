@@ -23,7 +23,7 @@
             = image_tag("logo.png", width: 100)
           %ul.nav.nav-pills.text-16
             %li.nav-item
-              %a.nav-link{:href => "#"}
+              = link_to record_path, class: 'nav-link' do
                 = image_tag("memo.png", width: "20")
                 Record
             %li.nav-item
@@ -37,7 +37,7 @@
             %li.nav-item.nav-item-last
               - if current_user
                 .dropdown
-                  %button#dropdownMenuButton.btn.btn-secondary.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
+                  %button#dropdownMenuButton.btn.btn-secondary.dropdown-user.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :type => "button"}
                     = current_user.decorate.full_name
                   .dropdown-menu{"aria-labelledby" => "dropdownMenuButton"}
                     %a.dropdown-item{:href => "#"} Profile
@@ -45,3 +45,19 @@
               - else
                 = link_to 'Signup', new_user_registration_path, class: 'sign-up'
     = yield
+    %footer.bg-dark2
+      .container
+        .flex-wrap.justify-content-center
+          %ul.nav.nav-pills.text-11
+            %li.nav-item
+              %a.nav-link{:href => "#"} 会員登録
+            %li.nav-item
+              %a.nav-link{:href => "#"} 運営会社
+            %li.nav-item
+              %a.nav-link{:href => "#"} 利用規約
+            %li.nav-item
+              %a.nav-link{:href => "#"} 個人情報の取扱について
+            %li.nav-item
+              %a.nav-link{:href => "#"} 特定商取引法に基づく表記
+            %li.nav-item
+              %a.nav-link{:href => "#"} お問い合わせ
