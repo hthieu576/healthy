@@ -12,7 +12,7 @@ development:
   <<: *default
   database: healthy_dev_github
   username: 'root'
-  password: 'root'
+  password: 'password'
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -21,10 +21,10 @@ test:
   <<: *default
   database: healthy_dev_test_github
   username: 'root'
-  password: 'root'
+  password: 'password'
 
 production:
   <<: *default
   database: healthy_dev_prod_github
   username: 'root'
-  password: 'root'
+  password: 'password'
