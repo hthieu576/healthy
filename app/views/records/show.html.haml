@@ -24,23 +24,25 @@
     .container
       .row
         .col-12
-          = line_chart({"2021-01-01" => 2, "2021-01-02" => 3, "2021-01-04" => 1})
+          = line_chart(@person_bodies)
 
   .features.mt-5
     .container
       .row
         .col-12
-          .feature-card
+          .feature-card.overflow-auto
             .row
-              .col-6
-                %span.text-white abd
-              .col-6
-                %span.text-white abd
-            .row
-              .col-6
-                %span.text-white bbbb
-              .col-6
-                %span.text-white abbbbbd
+              - @exercise_people.each do |exercise_person|
+                .row
+                  .col-2
+                    %h4.text-white My Exercise
+                  .col-2
+                    %h4.text-white= exercise_person.exercise_date
+                - current_user.decorate.exercise_people_by_date(exercise_person.exercise_date).each do |exercise_person|
+                  .col-6
+                    %span.text-white= exercise_person.exercise.note
+                    %span.text-warning.time-exercise= exercise_person.decorate.time_adjustment
+                    %div.text-warning=exercise_person.decorate.energy_consumption
 
               
   .features.mt-5

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_29_085523) do
+ActiveRecord::Schema.define(version: 2022_12_01_052650) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 2022_11_29_085523) do
     t.bigint "user_id", null: false
     t.bigint "exercise_id", null: false
     t.integer "exercise_time_adjustment"
+    t.integer "energy_comsumption_adjustment"
+    t.date "exercise_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["exercise_id"], name: "index_exercise_people_on_exercise_id"
@@ -108,7 +110,7 @@ ActiveRecord::Schema.define(version: 2022_11_29_085523) do
   create_table "person_bodies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.text "note"
-    t.integer "weight"
+    t.decimal "weight", precision: 5, scale: 2
     t.datetime "weight_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
