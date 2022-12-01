@@ -5,14 +5,14 @@ default: &default
   collation: utf8mb4_unicode_ci
   reconnect: true
   timeout: 5000
-  host: 'localhost'
+  host: '172.18.0.1'
   pool: 10
 
 development:
   <<: *default
   database: healthy_dev_github
   username: 'root'
-  password: 'password'
+  password: 'root'
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -21,10 +21,10 @@ test:
   <<: *default
   database: healthy_dev_test_github
   username: 'root'
-  password: 'password'
+  password: 'root'
 
 production:
   <<: *default
   database: healthy_dev_prod_github
   username: 'root'
-  password: 'password'
+  password: 'root'
