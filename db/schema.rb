@@ -33,17 +33,6 @@ ActiveRecord::Schema.define(version: 2022_12_01_052650) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "api_tokens", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.string "access_key", null: false
-    t.string "secret_key", null: false
-    t.string "refresh_token"
-    t.datetime "expire_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_api_tokens_on_user_id"
-  end
-
   create_table "exercise_people", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "exercise_id", null: false
@@ -159,7 +148,6 @@ ActiveRecord::Schema.define(version: 2022_12_01_052650) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "api_tokens", "users"
   add_foreign_key "exercise_people", "exercises"
   add_foreign_key "exercise_people", "users"
   add_foreign_key "foods", "unit_of_measures"
