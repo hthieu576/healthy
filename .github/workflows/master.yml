@@ -39,13 +39,12 @@ jobs:
       run: |
         gem install bundler:2.3.24
         bundle install --jobs 4 --retry 3
-    # TODO: Temporarily skip it
-    # - name: Run Tests
-      # run: |
-      #   cp config/database.yml.github-actions config/database.yml
-      #   bundle exec rails db:create
-      #   bundle exec rails db:migrate
-      #   bundle exec rspec
+    - name: Run Tests
+      run: |
+        cp config/database.yml.github-actions config/database.yml
+        bundle exec rails db:create
+        bundle exec rails db:migrate
+        bundle exec rspec
       env:
         DB_PORT: 3306
         RAILS_ENV: test
