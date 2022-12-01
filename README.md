@@ -17,7 +17,7 @@ Things you may want to cover:
 <img width="1000" alt="diagram" src="https://user-images.githubusercontent.com/20606548/204999699-c91c68cf-92fe-43e0-8c60-4a5a66030ef6.png">
 
 * Database creation
-  - Please run command `rails db:drop && rails db:create && rails db:migrate && rails db:seed`
+  - Please run command `rails db:create && rails db:migrate && rails db:seed`
 
 * Sample data to login
   - mail: `user_1@gmail.com`
